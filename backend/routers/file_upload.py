@@ -1,6 +1,6 @@
 import os
-import shutil
 import uuid
+import shutil
 from typing import List
 from pathlib import Path
 from datetime import datetime
@@ -14,15 +14,16 @@ from services.document_validator import DocumentValidator
 uploader_router = APIRouter()
 
 
-UPLOAD_DIR = Path("backend/uploads")
-# UPLOAD_DIR.mkdir(exist_ok=True)
+UPLOAD_DIR = Path("uploads")
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
 
 doc_validator = DocumentValidator()
 
 @uploader_router.post("/upload-file")
 async def upload_file(request: Request, file:UploadFile = File()):
     if request.session.get("authorized"):
-        validation = doc_validator.validate_file(file)
+        validation = await doc_validator.validate_file(file)
 
         if not validation["valid"]:
             raise HTTPException(
@@ -37,9 +38,14 @@ async def upload_file(request: Request, file:UploadFile = File()):
         unique_filename = f"{uuid.uuid4()}{file_ext}"
         file_path = UPLOAD_DIR / unique_filename
 
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+        try:
+            with open(file_path, "wb") as buffer:
+                shutil.copyfileobj(file.file, buffer)
+        except Exception as e:
+            raise HTTPException(status_code = 500, detail = f"File upload failed: {str(e)}")
         
+        finally:
+            file.file.close()
         
         return {
             "success": True,
@@ -83,6 +89,9 @@ async def upload_files(request: Request, files:List[UploadFile] = File()):
 
 
             try:
+                file.file.seek(0)
+
+
                 with open(file_path, "wb") as buffer:
                     shutil.copyfileobj(file.file, buffer)
 
@@ -99,6 +108,9 @@ async def upload_files(request: Request, files:List[UploadFile] = File()):
                     "success": False,
                     "errors": [f"Failed to save: {str(e)}"]
                 })
+
+            finally:
+                file.file.close()
 
         successful = [r for r in results if r["success"]]
         failed = [r for r in results if not r["success"]]
