@@ -5,8 +5,7 @@
 settings.json
 
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 
 uploads/
 
