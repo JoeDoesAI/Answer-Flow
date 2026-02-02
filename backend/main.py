@@ -1,22 +1,29 @@
 import os
+import sqlite3
 
 from dotenv import load_dotenv
 from fastapi import FastAPI,Request
 from fastapi.responses import RedirectResponse
 from starlette.middleware.sessions import SessionMiddleware
 
-from routers.auth import auth_router
-from routers.file_upload import uploader_router
+from api.routes.auth import auth_router
+from api.routes.file_upload import uploader_router
+
+from core.lifespan import lifespan
+from middleware.request_logging import LoggingMiddleware
+
 
 load_dotenv()
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 app.include_router(uploader_router)
 app.include_router(auth_router)
+
+app.add_middleware(LoggingMiddleware)
 
 app.add_middleware(
     SessionMiddleware, 

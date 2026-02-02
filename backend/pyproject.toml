@@ -1,0 +1,4 @@
+[dependency-groups]
+dev = [
+    "pymupdf4llm>=0.2.7",
+]

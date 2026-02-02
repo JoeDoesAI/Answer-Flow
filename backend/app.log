@@ -1,0 +1,1015 @@
+2026-01-23 14:13:28,706 - INFO - Will watch for changes in these directories: ['C:\\Users\\NEC\\Documents\\projects\\AnswerFlow\\backend']
+2026-01-23 14:13:28,706 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-01-23 14:13:28,711 - INFO - Started reloader process [17068] using WatchFiles
+2026-01-23 14:13:29,094 - INFO - 1 change detected
+2026-01-23 14:13:29,498 - INFO - 1 change detected
+2026-01-23 14:13:29,864 - INFO - 1 change detected
+2026-01-23 14:13:30,280 - INFO - 1 change detected
+2026-01-23 14:13:30,683 - INFO - 1 change detected
+2026-01-23 14:13:31,089 - INFO - 1 change detected
+2026-01-23 14:13:31,499 - INFO - 1 change detected
+2026-01-23 14:13:31,903 - INFO - 1 change detected
+2026-01-23 14:13:32,314 - INFO - 1 change detected
+2026-01-23 14:13:32,681 - INFO - 1 change detected
+2026-01-23 14:13:33,086 - INFO - 1 change detected
+2026-01-23 14:13:33,499 - INFO - 1 change detected
+2026-01-23 14:13:33,865 - INFO - 1 change detected
+2026-01-23 14:13:34,331 - INFO - 1 change detected
+2026-01-23 14:13:34,682 - INFO - 1 change detected
+2026-01-23 14:13:35,134 - INFO - 1 change detected
+2026-01-23 14:13:35,497 - INFO - 1 change detected
+2026-01-23 14:13:35,899 - INFO - 1 change detected
+2026-01-23 14:13:36,313 - INFO - 1 change detected
+2026-01-23 14:13:36,715 - INFO - 1 change detected
+2026-01-23 14:13:37,122 - INFO - 1 change detected
+2026-01-23 14:13:37,524 - INFO - 1 change detected
+2026-01-23 14:13:37,925 - INFO - 1 change detected
+2026-01-23 14:13:38,338 - INFO - 1 change detected
+2026-01-23 14:13:38,698 - INFO - 1 change detected
+2026-01-23 14:13:39,110 - INFO - 1 change detected
+2026-01-23 14:13:39,515 - INFO - 1 change detected
+2026-01-23 14:13:39,879 - INFO - 1 change detected
+2026-01-23 14:13:40,296 - INFO - 1 change detected
+2026-01-23 14:13:40,702 - INFO - 1 change detected
+2026-01-23 14:13:41,114 - INFO - 1 change detected
+2026-01-23 14:13:41,531 - INFO - 1 change detected
+2026-01-23 14:13:41,945 - INFO - 1 change detected
+2026-01-23 14:13:42,347 - INFO - 1 change detected
+2026-01-23 14:13:42,749 - INFO - 1 change detected
+2026-01-23 14:13:43,161 - INFO - 1 change detected
+2026-01-23 14:13:43,563 - INFO - 1 change detected
+2026-01-23 14:13:43,965 - INFO - 1 change detected
+2026-01-23 14:13:44,320 - INFO - 1 change detected
+2026-01-23 14:13:44,728 - INFO - 1 change detected
+2026-01-23 14:13:45,130 - INFO - 1 change detected
+2026-01-23 14:13:45,546 - INFO - 1 change detected
+2026-01-23 14:13:45,949 - INFO - 1 change detected
+2026-01-23 14:13:45,993 - INFO - Started server process [5360]
+2026-01-23 14:13:45,996 - INFO - Waiting for application startup.
+2026-01-23 14:13:46,031 - INFO - BEGIN (implicit)
+2026-01-23 14:13:46,032 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-23 14:13:46,033 - INFO - [raw sql] ()
+2026-01-23 14:13:46,037 - INFO - PRAGMA temp.table_info("filenamestore")
+2026-01-23 14:13:46,037 - INFO - [raw sql] ()
+2026-01-23 14:13:46,039 - INFO - PRAGMA main.table_info("query_log")
+2026-01-23 14:13:46,039 - INFO - [raw sql] ()
+2026-01-23 14:13:46,042 - INFO - PRAGMA temp.table_info("query_log")
+2026-01-23 14:13:46,042 - INFO - [raw sql] ()
+2026-01-23 14:13:46,043 - INFO - PRAGMA main.table_info("request_log")
+2026-01-23 14:13:46,044 - INFO - [raw sql] ()
+2026-01-23 14:13:46,046 - INFO - PRAGMA temp.table_info("request_log")
+2026-01-23 14:13:46,046 - INFO - [raw sql] ()
+2026-01-23 14:13:46,049 - INFO - 
+CREATE TABLE filenamestore (
+	id INTEGER NOT NULL, 
+	date VARCHAR, 
+	time VARCHAR, 
+	stored_file_name VARCHAR, 
+	original_file_name VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-23 14:13:46,050 - INFO - [no key 0.00111s] ()
+2026-01-23 14:13:46,059 - INFO - CREATE UNIQUE INDEX ix_filenamestore_stored_file_name ON filenamestore (stored_file_name)
+2026-01-23 14:13:46,060 - INFO - [no key 0.00051s] ()
+2026-01-23 14:13:46,067 - INFO - CREATE INDEX ix_filenamestore_original_file_name ON filenamestore (original_file_name)
+2026-01-23 14:13:46,068 - INFO - [no key 0.00042s] ()
+2026-01-23 14:13:46,077 - INFO - CREATE INDEX ix_filenamestore_date ON filenamestore (date)
+2026-01-23 14:13:46,077 - INFO - [no key 0.00061s] ()
+2026-01-23 14:13:46,087 - INFO - CREATE INDEX ix_filenamestore_time ON filenamestore (time)
+2026-01-23 14:13:46,087 - INFO - [no key 0.00049s] ()
+2026-01-23 14:13:46,095 - INFO - CREATE INDEX ix_filenamestore_id ON filenamestore (id)
+2026-01-23 14:13:46,097 - INFO - [no key 0.00058s] ()
+2026-01-23 14:13:46,108 - INFO - ROLLBACK
+2026-01-23 14:13:46,185 - ERROR - Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 6791, in visit_create_table
+    processed = self.process(
+                ^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 933, in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 138, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 6822, in visit_create_column
+    text = self.get_column_specification(column, first_pk=first_pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 1692, in get_column_specification
+    coltype = self.dialect.type_compiler_instance.process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 978, in process
+    return type_._compiler_dispatch(self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 138, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 7443, in visit_null
+    raise exc.CompileError(
+sqlalchemy.exc.CompileError: Can't generate DDL for NullType(); did you forget to specify a type on this Column?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 694, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 153, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 153, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\core\lifespan.py", line 12, in lifespan
+    await conn.run_sync(Base.metadata.create_all)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\ext\asyncio\engine.py", line 888, in run_sync
+    return await greenlet_spawn(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 5928, in create_all
+    bind._run_ddl_visitor(
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2467, in _run_ddl_visitor
+    ).traverse_single(element)
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 984, in visit_metadata
+    self.traverse_single(
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1022, in visit_table
+    )._invoke_with(self.connection)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 321, in _invoke_with
+    return bind.execute(self)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 187, in _execute_on_connection
+    return connection._execute_ddl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1527, in _execute_ddl
+    compiled = ddl.compile(
+               ^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 312, in compile
+    return self._compiler(dialect, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 76, in _compiler
+    return dialect.ddl_compiler(dialect, self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 887, in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 933, in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 138, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 6801, in visit_create_table
+    raise exc.CompileError(
+sqlalchemy.exc.CompileError: (in table 'query_log', column 'id'): Can't generate DDL for NullType(); did you forget to specify a type on this Column?
+
+2026-01-23 14:13:46,199 - ERROR - Application startup failed. Exiting.
+2026-01-23 14:13:46,301 - INFO - 3 changes detected
+2026-01-23 14:13:46,664 - INFO - 1 change detected
+2026-01-23 14:13:47,027 - INFO - 1 change detected
+2026-01-23 14:13:47,381 - INFO - 1 change detected
+2026-01-23 14:13:47,834 - INFO - 1 change detected
+2026-01-23 14:13:48,242 - INFO - 1 change detected
+2026-01-23 14:13:48,659 - INFO - 1 change detected
+2026-01-23 14:13:49,061 - INFO - 1 change detected
+2026-01-23 14:13:49,464 - INFO - 1 change detected
+2026-01-23 14:13:49,866 - INFO - 1 change detected
+2026-01-23 14:13:50,268 - INFO - 1 change detected
+2026-01-23 14:13:50,669 - INFO - 1 change detected
+2026-01-23 14:13:51,030 - INFO - 1 change detected
+2026-01-23 14:13:51,444 - INFO - 1 change detected
+2026-01-23 14:13:51,852 - INFO - 1 change detected
+2026-01-23 14:13:52,264 - INFO - 1 change detected
+2026-01-23 14:13:52,681 - INFO - 1 change detected
+2026-01-23 14:13:53,095 - INFO - 1 change detected
+2026-01-23 14:13:53,452 - INFO - 1 change detected
+2026-01-23 14:13:53,864 - INFO - 1 change detected
+2026-01-23 14:13:54,273 - INFO - 1 change detected
+2026-01-23 14:13:54,679 - INFO - 1 change detected
+2026-01-23 14:13:55,097 - INFO - 1 change detected
+2026-01-23 14:13:55,503 - INFO - 1 change detected
+2026-01-23 14:13:55,857 - INFO - 1 change detected
+2026-01-23 14:13:56,263 - INFO - 1 change detected
+2026-01-23 14:13:56,669 - INFO - 1 change detected
+2026-01-23 14:13:57,080 - INFO - 1 change detected
+2026-01-23 14:13:57,482 - INFO - 1 change detected
+2026-01-23 14:13:57,888 - INFO - 1 change detected
+2026-01-23 14:13:58,296 - INFO - 1 change detected
+2026-01-23 14:13:58,713 - INFO - 1 change detected
+2026-01-23 14:13:59,065 - INFO - 1 change detected
+2026-01-23 14:13:59,481 - INFO - 1 change detected
+2026-01-23 14:13:59,896 - INFO - 1 change detected
+2026-01-23 14:14:00,309 - INFO - 1 change detected
+2026-01-23 14:14:00,713 - INFO - 1 change detected
+2026-01-23 14:14:01,130 - INFO - 1 change detected
+2026-01-23 14:14:01,537 - INFO - 1 change detected
+2026-01-23 14:14:01,941 - INFO - 1 change detected
+2026-01-23 14:14:02,358 - INFO - 1 change detected
+2026-01-23 14:14:02,767 - INFO - 1 change detected
+2026-01-23 14:14:03,130 - INFO - 1 change detected
+2026-01-23 14:14:03,534 - INFO - 1 change detected
+2026-01-23 14:14:03,941 - INFO - 1 change detected
+2026-01-23 14:14:04,358 - INFO - 1 change detected
+2026-01-23 14:14:04,760 - INFO - 1 change detected
+2026-01-23 14:14:05,165 - INFO - 1 change detected
+2026-01-23 14:14:05,572 - INFO - 1 change detected
+2026-01-23 14:14:05,979 - INFO - 1 change detected
+2026-01-23 14:14:06,384 - INFO - 1 change detected
+2026-01-23 14:14:06,790 - INFO - 1 change detected
+2026-01-23 14:14:07,157 - INFO - 1 change detected
+2026-01-23 14:14:07,567 - INFO - 1 change detected
+2026-01-23 14:14:07,985 - INFO - 1 change detected
+2026-01-23 14:14:08,403 - INFO - 1 change detected
+2026-01-23 14:14:08,761 - INFO - 1 change detected
+2026-01-23 14:14:09,213 - INFO - 1 change detected
+2026-01-23 14:14:09,620 - INFO - 1 change detected
+2026-01-23 14:14:09,985 - INFO - 1 change detected
+2026-01-23 14:14:10,388 - INFO - 1 change detected
+2026-01-23 14:14:10,795 - INFO - 1 change detected
+2026-01-23 14:14:11,212 - INFO - 1 change detected
+2026-01-23 14:14:11,615 - INFO - 1 change detected
+2026-01-23 14:14:12,024 - INFO - 1 change detected
+2026-01-23 14:14:12,428 - INFO - 1 change detected
+2026-01-23 14:14:12,844 - INFO - 1 change detected
+2026-01-23 14:14:13,206 - INFO - 1 change detected
+2026-01-23 14:14:13,660 - INFO - 1 change detected
+2026-01-23 14:14:14,065 - INFO - 1 change detected
+2026-01-23 14:14:14,428 - INFO - 1 change detected
+2026-01-23 14:14:14,891 - INFO - 1 change detected
+2026-01-23 14:14:15,294 - INFO - 1 change detected
+2026-01-23 14:14:15,645 - INFO - 1 change detected
+2026-01-23 14:14:16,049 - INFO - 1 change detected
+2026-01-23 14:14:16,456 - INFO - 1 change detected
+2026-01-23 14:14:16,865 - INFO - 1 change detected
+2026-01-23 14:14:17,278 - INFO - 1 change detected
+2026-01-23 14:14:17,696 - INFO - 1 change detected
+2026-01-23 14:14:18,105 - INFO - 1 change detected
+2026-01-23 14:14:18,460 - INFO - 1 change detected
+2026-01-23 14:14:18,812 - INFO - 1 change detected
+2026-01-23 14:14:19,180 - INFO - 1 change detected
+2026-01-23 14:14:19,538 - INFO - 1 change detected
+2026-01-23 14:14:19,902 - INFO - 1 change detected
+2026-01-23 14:14:20,261 - INFO - 1 change detected
+2026-01-23 14:14:20,626 - INFO - 1 change detected
+2026-01-23 14:14:21,040 - INFO - 1 change detected
+2026-01-23 14:14:21,453 - INFO - 1 change detected
+2026-01-23 14:14:21,865 - INFO - 1 change detected
+2026-01-23 14:14:22,228 - INFO - 1 change detected
+2026-01-23 14:14:22,630 - INFO - 1 change detected
+2026-01-23 14:14:23,044 - INFO - 1 change detected
+2026-01-23 14:14:23,409 - INFO - 1 change detected
+2026-01-23 14:14:23,812 - INFO - 1 change detected
+2026-01-23 14:14:24,224 - INFO - 1 change detected
+2026-01-23 14:14:24,626 - INFO - 1 change detected
+2026-01-23 14:14:24,984 - INFO - 1 change detected
+2026-01-23 14:14:25,397 - INFO - 1 change detected
+2026-01-23 14:14:25,805 - INFO - 1 change detected
+2026-01-23 14:14:26,214 - INFO - 1 change detected
+2026-01-23 14:14:26,629 - INFO - 1 change detected
+2026-01-23 14:14:26,995 - INFO - 1 change detected
+2026-01-23 14:14:27,399 - INFO - 1 change detected
+2026-01-23 14:14:27,812 - INFO - 1 change detected
+2026-01-23 14:14:28,221 - INFO - 1 change detected
+2026-01-23 14:14:28,625 - INFO - 1 change detected
+2026-01-23 14:14:28,988 - INFO - 1 change detected
+2026-01-23 14:14:29,445 - INFO - 1 change detected
+2026-01-23 14:14:29,808 - INFO - 1 change detected
+2026-01-23 14:15:19,098 - INFO - Will watch for changes in these directories: ['C:\\Users\\NEC\\Documents\\projects\\AnswerFlow\\backend']
+2026-01-23 14:15:19,099 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-01-23 14:15:19,100 - INFO - Started reloader process [5900] using WatchFiles
+2026-01-23 14:15:35,721 - INFO - Started server process [17900]
+2026-01-23 14:15:35,723 - INFO - Waiting for application startup.
+2026-01-23 14:15:35,728 - INFO - BEGIN (implicit)
+2026-01-23 14:15:35,729 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-23 14:15:35,729 - INFO - [raw sql] ()
+2026-01-23 14:15:35,730 - INFO - PRAGMA temp.table_info("filenamestore")
+2026-01-23 14:15:35,731 - INFO - [raw sql] ()
+2026-01-23 14:15:35,733 - INFO - PRAGMA main.table_info("query_log")
+2026-01-23 14:15:35,733 - INFO - [raw sql] ()
+2026-01-23 14:15:35,735 - INFO - PRAGMA temp.table_info("query_log")
+2026-01-23 14:15:35,735 - INFO - [raw sql] ()
+2026-01-23 14:15:35,735 - INFO - PRAGMA main.table_info("request_log")
+2026-01-23 14:15:35,736 - INFO - [raw sql] ()
+2026-01-23 14:15:35,738 - INFO - PRAGMA temp.table_info("request_log")
+2026-01-23 14:15:35,738 - INFO - [raw sql] ()
+2026-01-23 14:15:35,740 - INFO - 
+CREATE TABLE filenamestore (
+	id INTEGER NOT NULL, 
+	date VARCHAR, 
+	time VARCHAR, 
+	stored_file_name VARCHAR, 
+	original_file_name VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-23 14:15:35,741 - INFO - [no key 0.00074s] ()
+2026-01-23 14:15:35,759 - INFO - CREATE INDEX ix_filenamestore_time ON filenamestore (time)
+2026-01-23 14:15:35,759 - INFO - [no key 0.00042s] ()
+2026-01-23 14:15:35,766 - INFO - CREATE INDEX ix_filenamestore_original_file_name ON filenamestore (original_file_name)
+2026-01-23 14:15:35,766 - INFO - [no key 0.00029s] ()
+2026-01-23 14:15:35,774 - INFO - CREATE INDEX ix_filenamestore_id ON filenamestore (id)
+2026-01-23 14:15:35,774 - INFO - [no key 0.00036s] ()
+2026-01-23 14:15:35,782 - INFO - CREATE INDEX ix_filenamestore_date ON filenamestore (date)
+2026-01-23 14:15:35,782 - INFO - [no key 0.00027s] ()
+2026-01-23 14:15:35,790 - INFO - CREATE UNIQUE INDEX ix_filenamestore_stored_file_name ON filenamestore (stored_file_name)
+2026-01-23 14:15:35,790 - INFO - [no key 0.00039s] ()
+2026-01-23 14:15:35,798 - INFO - ROLLBACK
+2026-01-23 14:15:35,812 - ERROR - Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 6791, in visit_create_table
+    processed = self.process(
+                ^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 933, in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 138, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 6822, in visit_create_column
+    text = self.get_column_specification(column, first_pk=first_pk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 1692, in get_column_specification
+    coltype = self.dialect.type_compiler_instance.process(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 978, in process
+    return type_._compiler_dispatch(self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 138, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 7443, in visit_null
+    raise exc.CompileError(
+sqlalchemy.exc.CompileError: Can't generate DDL for NullType(); did you forget to specify a type on this Column?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 694, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 153, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 153, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\core\lifespan.py", line 12, in lifespan
+    await conn.run_sync(Base.metadata.create_all)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\ext\asyncio\engine.py", line 888, in run_sync
+    return await greenlet_spawn(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 5928, in create_all
+    bind._run_ddl_visitor(
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2467, in _run_ddl_visitor
+    ).traverse_single(element)
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 984, in visit_metadata
+    self.traverse_single(
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 661, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1022, in visit_table
+    )._invoke_with(self.connection)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 321, in _invoke_with
+    return bind.execute(self)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 187, in _execute_on_connection
+    return connection._execute_ddl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1527, in _execute_ddl
+    compiled = ddl.compile(
+               ^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 312, in compile
+    return self._compiler(dialect, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 76, in _compiler
+    return dialect.ddl_compiler(dialect, self, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 887, in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 933, in process
+    return obj._compiler_dispatch(self, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\visitors.py", line 138, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\sqlalchemy\sql\compiler.py", line 6801, in visit_create_table
+    raise exc.CompileError(
+sqlalchemy.exc.CompileError: (in table 'query_log', column 'id'): Can't generate DDL for NullType(); did you forget to specify a type on this Column?
+
+2026-01-23 14:15:35,823 - ERROR - Application startup failed. Exiting.
+2026-01-23 14:15:35,856 - INFO - 3 changes detected
+2026-01-23 14:17:20,104 - INFO - 1 change detected
+2026-01-23 14:17:20,104 - WARNING - WatchFiles detected changes in 'models\sqlite\query_log.py'. Reloading...
+2026-01-23 14:18:51,842 - INFO - Will watch for changes in these directories: ['C:\\Users\\NEC\\Documents\\projects\\AnswerFlow\\backend']
+2026-01-23 14:18:51,842 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-01-23 14:18:51,845 - INFO - Started reloader process [17780] using WatchFiles
+2026-01-23 14:19:13,907 - INFO - Started server process [3284]
+2026-01-23 14:19:13,907 - INFO - Waiting for application startup.
+2026-01-23 14:19:13,913 - INFO - BEGIN (implicit)
+2026-01-23 14:19:13,913 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-23 14:19:13,913 - INFO - [raw sql] ()
+2026-01-23 14:19:13,915 - INFO - PRAGMA temp.table_info("filenamestore")
+2026-01-23 14:19:13,915 - INFO - [raw sql] ()
+2026-01-23 14:19:13,917 - INFO - PRAGMA main.table_info("query_log")
+2026-01-23 14:19:13,917 - INFO - [raw sql] ()
+2026-01-23 14:19:13,919 - INFO - PRAGMA temp.table_info("query_log")
+2026-01-23 14:19:13,919 - INFO - [raw sql] ()
+2026-01-23 14:19:13,920 - INFO - PRAGMA main.table_info("request_log")
+2026-01-23 14:19:13,921 - INFO - [raw sql] ()
+2026-01-23 14:19:13,922 - INFO - PRAGMA temp.table_info("request_log")
+2026-01-23 14:19:13,922 - INFO - [raw sql] ()
+2026-01-23 14:19:13,924 - INFO - 
+CREATE TABLE filenamestore (
+	id INTEGER NOT NULL, 
+	date VARCHAR, 
+	time VARCHAR, 
+	stored_file_name VARCHAR, 
+	original_file_name VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-23 14:19:13,925 - INFO - [no key 0.00042s] ()
+2026-01-23 14:19:13,933 - INFO - CREATE INDEX ix_filenamestore_time ON filenamestore (time)
+2026-01-23 14:19:13,933 - INFO - [no key 0.00031s] ()
+2026-01-23 14:19:13,940 - INFO - CREATE INDEX ix_filenamestore_original_file_name ON filenamestore (original_file_name)
+2026-01-23 14:19:13,940 - INFO - [no key 0.00038s] ()
+2026-01-23 14:19:13,948 - INFO - CREATE INDEX ix_filenamestore_id ON filenamestore (id)
+2026-01-23 14:19:13,948 - INFO - [no key 0.00037s] ()
+2026-01-23 14:19:13,955 - INFO - CREATE INDEX ix_filenamestore_date ON filenamestore (date)
+2026-01-23 14:19:13,955 - INFO - [no key 0.00038s] ()
+2026-01-23 14:19:13,961 - INFO - CREATE UNIQUE INDEX ix_filenamestore_stored_file_name ON filenamestore (stored_file_name)
+2026-01-23 14:19:13,962 - INFO - [no key 0.00051s] ()
+2026-01-23 14:19:13,968 - INFO - 
+CREATE TABLE query_log (
+	id INTEGER NOT NULL, 
+	date VARCHAR, 
+	time VARCHAR, 
+	query_text VARCHAR, 
+	query_length INTEGER, 
+	response VARCHAR, 
+	response_length VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-23 14:19:13,970 - INFO - [no key 0.00056s] ()
+2026-01-23 14:19:13,979 - INFO - CREATE INDEX ix_query_log_time ON query_log (time)
+2026-01-23 14:19:13,979 - INFO - [no key 0.00046s] ()
+2026-01-23 14:19:13,985 - INFO - CREATE INDEX ix_query_log_response_length ON query_log (response_length)
+2026-01-23 14:19:13,985 - INFO - [no key 0.00024s] ()
+2026-01-23 14:19:13,991 - INFO - CREATE INDEX ix_query_log_query_length ON query_log (query_length)
+2026-01-23 14:19:13,991 - INFO - [no key 0.00035s] ()
+2026-01-23 14:19:13,998 - INFO - CREATE INDEX ix_query_log_date ON query_log (date)
+2026-01-23 14:19:13,999 - INFO - [no key 0.00030s] ()
+2026-01-23 14:19:14,005 - INFO - CREATE INDEX ix_query_log_query_text ON query_log (query_text)
+2026-01-23 14:19:14,005 - INFO - [no key 0.00034s] ()
+2026-01-23 14:19:14,010 - INFO - 3 changes detected
+2026-01-23 14:19:14,012 - INFO - CREATE INDEX ix_query_log_response ON query_log (response)
+2026-01-23 14:19:14,013 - INFO - [no key 0.00036s] ()
+2026-01-23 14:19:14,016 - INFO - CREATE INDEX ix_query_log_id ON query_log (id)
+2026-01-23 14:19:14,019 - INFO - [no key 0.00031s] ()
+2026-01-23 14:19:14,023 - INFO - 
+CREATE TABLE request_log (
+	id INTEGER NOT NULL, 
+	date VARCHAR, 
+	time VARCHAR, 
+	method VARCHAR, 
+	url VARCHAR, 
+	status_code VARCHAR, 
+	client_ip VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2026-01-23 14:19:14,023 - INFO - [no key 0.00040s] ()
+2026-01-23 14:19:14,030 - INFO - CREATE INDEX ix_request_log_time ON request_log (time)
+2026-01-23 14:19:14,030 - INFO - [no key 0.00028s] ()
+2026-01-23 14:19:14,036 - INFO - CREATE INDEX ix_request_log_status_code ON request_log (status_code)
+2026-01-23 14:19:14,036 - INFO - [no key 0.00025s] ()
+2026-01-23 14:19:14,043 - INFO - CREATE INDEX ix_request_log_id ON request_log (id)
+2026-01-23 14:19:14,043 - INFO - [no key 0.00032s] ()
+2026-01-23 14:19:14,049 - INFO - CREATE INDEX ix_request_log_method ON request_log (method)
+2026-01-23 14:19:14,049 - INFO - [no key 0.00030s] ()
+2026-01-23 14:19:14,055 - INFO - CREATE INDEX ix_request_log_url ON request_log (url)
+2026-01-23 14:19:14,055 - INFO - [no key 0.00028s] ()
+2026-01-23 14:19:14,062 - INFO - CREATE INDEX ix_request_log_date ON request_log (date)
+2026-01-23 14:19:14,062 - INFO - [no key 0.00036s] ()
+2026-01-23 14:19:14,064 - INFO - CREATE INDEX ix_request_log_client_ip ON request_log (client_ip)
+2026-01-23 14:19:14,064 - INFO - [no key 0.00026s] ()
+2026-01-23 14:19:14,075 - INFO - COMMIT
+2026-01-23 14:19:14,076 - INFO - Application startup complete.
+2026-01-23 14:19:14,114 - INFO - Request: GET /docs from 127.0.0.1
+2026-01-23 14:19:14,114 - INFO - Response: GET /docs returned 200 to 127.0.0.1
+2026-01-23 14:19:14,371 - INFO - 3 changes detected
+2026-01-23 14:19:50,164 - INFO - Request: GET /openapi.json from 127.0.0.1
+2026-01-23 14:19:50,189 - INFO - Response: GET /openapi.json returned 200 to 127.0.0.1
+2026-01-23 14:20:20,352 - INFO - Request: POST /verify-access from 127.0.0.1
+2026-01-23 14:20:20,353 - INFO - Response: POST /verify-access returned 200 to 127.0.0.1
+2026-01-23 14:21:57,827 - INFO - Request: POST /upload-files from 127.0.0.1
+2026-01-23 14:21:58,066 - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\sessions.py", line 85, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\middleware\request_logging.py", line 15, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\api\routes\file_upload.py", line 162, in upload_files
+    process_docs = RAGPipeline()
+                   ^^^^^^^^^^^^^
+TypeError: RAGPipeline.__init__() missing 1 required positional argument: 'db'
+2026-01-23 14:21:58,258 - INFO - 3 changes detected
+2026-01-23 14:29:55,542 - INFO - 1 change detected
+2026-01-23 14:29:55,544 - WARNING - WatchFiles detected changes in 'services\rag_pipeline.py'. Reloading...
+2026-01-23 14:29:55,624 - INFO - Shutting down
+2026-01-23 14:29:55,738 - INFO - Waiting for application shutdown.
+2026-01-23 14:29:55,745 - INFO - Application shutdown complete.
+2026-01-23 14:29:55,745 - INFO - Finished server process [3284]
+2026-01-23 14:29:57,854 - INFO - 2 changes detected
+2026-01-23 14:29:59,581 - INFO - 5 changes detected
+2026-01-23 14:30:17,656 - INFO - Started server process [1300]
+2026-01-23 14:30:17,656 - INFO - Waiting for application startup.
+2026-01-23 14:30:17,656 - INFO - BEGIN (implicit)
+2026-01-23 14:30:17,656 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-23 14:30:17,656 - INFO - [raw sql] ()
+2026-01-23 14:30:17,667 - INFO - PRAGMA main.table_info("query_log")
+2026-01-23 14:30:17,667 - INFO - [raw sql] ()
+2026-01-23 14:30:17,672 - INFO - PRAGMA main.table_info("request_log")
+2026-01-23 14:30:17,673 - INFO - [raw sql] ()
+2026-01-23 14:30:17,675 - INFO - COMMIT
+2026-01-23 14:30:17,675 - INFO - Application startup complete.
+2026-01-23 14:30:19,093 - INFO - 1 change detected
+2026-01-23 14:30:19,093 - WARNING - WatchFiles detected changes in 'services\late_chunking.py'. Reloading...
+2026-01-23 14:30:19,170 - INFO - Shutting down
+2026-01-23 14:30:19,284 - INFO - Waiting for application shutdown.
+2026-01-23 14:30:19,292 - INFO - Application shutdown complete.
+2026-01-23 14:30:19,293 - INFO - Finished server process [1300]
+2026-01-23 14:30:21,186 - INFO - 1 change detected
+2026-01-23 14:30:23,250 - INFO - 5 changes detected
+2026-01-23 14:30:41,100 - INFO - Started server process [14916]
+2026-01-23 14:30:41,102 - INFO - Waiting for application startup.
+2026-01-23 14:30:41,108 - INFO - BEGIN (implicit)
+2026-01-23 14:30:41,108 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-23 14:30:41,110 - INFO - [raw sql] ()
+2026-01-23 14:30:41,112 - INFO - PRAGMA main.table_info("query_log")
+2026-01-23 14:30:41,112 - INFO - [raw sql] ()
+2026-01-23 14:30:41,112 - INFO - PRAGMA main.table_info("request_log")
+2026-01-23 14:30:41,112 - INFO - [raw sql] ()
+2026-01-23 14:30:41,118 - INFO - COMMIT
+2026-01-23 14:30:41,120 - INFO - Application startup complete.
+2026-01-23 14:31:18,894 - INFO - 1 change detected
+2026-01-23 14:31:18,895 - WARNING - WatchFiles detected changes in 'services\store_vectors.py'. Reloading...
+2026-01-23 14:31:19,018 - INFO - Shutting down
+2026-01-23 14:31:19,131 - INFO - Waiting for application shutdown.
+2026-01-23 14:31:19,134 - INFO - Application shutdown complete.
+2026-01-23 14:31:19,135 - INFO - Finished server process [14916]
+2026-01-23 14:31:20,832 - INFO - 1 change detected
+2026-01-23 14:31:23,095 - INFO - 1 change detected
+2026-01-23 14:31:23,095 - WARNING - WatchFiles detected changes in 'services\rag_pipeline.py'. Reloading...
+2026-01-23 14:31:42,404 - INFO - Started server process [10124]
+2026-01-23 14:31:42,409 - INFO - Waiting for application startup.
+2026-01-23 14:31:42,418 - INFO - BEGIN (implicit)
+2026-01-23 14:31:42,419 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-23 14:31:42,420 - INFO - [raw sql] ()
+2026-01-23 14:31:42,424 - INFO - PRAGMA main.table_info("query_log")
+2026-01-23 14:31:42,425 - INFO - [raw sql] ()
+2026-01-23 14:31:42,427 - INFO - PRAGMA main.table_info("request_log")
+2026-01-23 14:31:42,429 - INFO - [raw sql] ()
+2026-01-23 14:31:42,431 - INFO - COMMIT
+2026-01-23 14:31:42,434 - INFO - Application startup complete.
+2026-01-23 14:31:42,446 - ERROR - Traceback (most recent call last):
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+2026-01-27 15:45:56,777 - INFO - Will watch for changes in these directories: ['C:\\Users\\NEC\\Documents\\projects\\AnswerFlow\\backend']
+2026-01-27 15:45:56,780 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-01-27 15:45:56,781 - INFO - Started reloader process [1440] using WatchFiles
+2026-01-27 15:45:58,453 - INFO - Started server process [10456]
+2026-01-27 15:45:58,453 - INFO - Waiting for application startup.
+2026-01-27 15:45:58,469 - INFO - BEGIN (implicit)
+2026-01-27 15:45:58,470 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-27 15:45:58,470 - INFO - [raw sql] ()
+2026-01-27 15:45:58,476 - INFO - PRAGMA main.table_info("query_log")
+2026-01-27 15:45:58,476 - INFO - [raw sql] ()
+2026-01-27 15:45:58,478 - INFO - PRAGMA main.table_info("request_log")
+2026-01-27 15:45:58,478 - INFO - [raw sql] ()
+2026-01-27 15:45:58,480 - INFO - COMMIT
+2026-01-27 15:45:58,481 - INFO - Application startup complete.
+2026-01-27 15:46:07,686 - INFO - Request: GET /docs from 127.0.0.1
+2026-01-27 15:46:07,689 - INFO - Response: GET /docs returned 200 to 127.0.0.1
+2026-01-27 15:46:12,328 - INFO - Request: GET /openapi.json from 127.0.0.1
+2026-01-27 15:46:12,347 - INFO - Response: GET /openapi.json returned 200 to 127.0.0.1
+2026-01-27 15:46:21,096 - INFO - Request: POST /verify-access from 127.0.0.1
+2026-01-27 15:46:21,097 - INFO - Response: POST /verify-access returned 200 to 127.0.0.1
+2026-01-27 15:46:53,507 - INFO - Request: POST /upload-file from 127.0.0.1
+2026-01-27 15:46:53,576 - INFO - 1 change detected
+2026-01-27 15:46:53,521 - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\sessions.py", line 85, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\middleware\request_logging.py", line 15, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\api\routes\file_upload.py", line 64, in upload_file
+    current_date = datetime.date()
+                   ^^^^^^^^^^^^^^^
+TypeError: unbound method datetime.date() needs an argument
+2026-01-27 15:48:15,497 - INFO - 1 change detected
+2026-01-27 15:48:15,498 - WARNING - WatchFiles detected changes in 'api\routes\file_upload.py'. Reloading...
+2026-01-27 15:48:15,612 - INFO - Shutting down
+2026-01-27 15:48:15,727 - INFO - Waiting for application shutdown.
+2026-01-27 15:48:15,730 - INFO - Application shutdown complete.
+2026-01-27 15:48:15,731 - INFO - Finished server process [10456]
+2026-01-27 15:48:16,276 - INFO - 1 change detected
+2026-01-27 15:48:17,233 - INFO - 5 changes detected
+2026-01-27 15:48:17,548 - INFO - Started server process [12616]
+2026-01-27 15:48:17,548 - INFO - Waiting for application startup.
+2026-01-27 15:48:17,566 - INFO - BEGIN (implicit)
+2026-01-27 15:48:17,566 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-27 15:48:17,566 - INFO - [raw sql] ()
+2026-01-27 15:48:17,568 - INFO - PRAGMA main.table_info("query_log")
+2026-01-27 15:48:17,569 - INFO - [raw sql] ()
+2026-01-27 15:48:17,571 - INFO - PRAGMA main.table_info("request_log")
+2026-01-27 15:48:17,571 - INFO - [raw sql] ()
+2026-01-27 15:48:17,572 - INFO - COMMIT
+2026-01-27 15:48:17,573 - INFO - Application startup complete.
+2026-01-27 15:48:17,595 - INFO - 2 changes detected
+2026-01-27 15:48:17,595 - WARNING - WatchFiles detected changes in 'api\routes\file_upload.py'. Reloading...
+2026-01-27 15:48:17,684 - INFO - Shutting down
+2026-01-27 15:48:17,798 - INFO - Waiting for application shutdown.
+2026-01-27 15:48:17,798 - INFO - Application shutdown complete.
+2026-01-27 15:48:17,798 - INFO - Finished server process [12616]
+2026-01-27 15:48:18,353 - INFO - 1 change detected
+2026-01-27 15:48:18,963 - INFO - 5 changes detected
+2026-01-27 15:48:19,263 - INFO - Started server process [19764]
+2026-01-27 15:48:19,263 - INFO - Waiting for application startup.
+2026-01-27 15:48:19,263 - INFO - BEGIN (implicit)
+2026-01-27 15:48:19,263 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-27 15:48:19,263 - INFO - [raw sql] ()
+2026-01-27 15:48:19,272 - INFO - PRAGMA main.table_info("query_log")
+2026-01-27 15:48:19,272 - INFO - [raw sql] ()
+2026-01-27 15:48:19,273 - INFO - PRAGMA main.table_info("request_log")
+2026-01-27 15:48:19,274 - INFO - [raw sql] ()
+2026-01-27 15:48:19,277 - INFO - COMMIT
+2026-01-27 15:48:19,277 - INFO - Application startup complete.
+2026-01-27 15:52:10,584 - INFO - 1 change detected
+2026-01-27 15:52:10,584 - WARNING - WatchFiles detected changes in 'api\routes\file_upload.py'. Reloading...
+2026-01-27 15:52:10,629 - INFO - Shutting down
+2026-01-27 15:52:10,744 - INFO - Waiting for application shutdown.
+2026-01-27 15:52:10,745 - INFO - Application shutdown complete.
+2026-01-27 15:52:10,745 - INFO - Finished server process [19764]
+2026-01-27 15:52:11,336 - INFO - 1 change detected
+2026-01-27 15:52:12,703 - INFO - 1 change detected
+2026-01-27 15:52:12,703 - WARNING - WatchFiles detected changes in 'api\routes\file_upload.py'. Reloading...
+2026-01-27 15:52:13,781 - INFO - 5 changes detected
+2026-01-27 15:52:14,081 - INFO - Started server process [352]
+2026-01-27 15:52:14,084 - INFO - Waiting for application startup.
+2026-01-27 15:52:14,084 - INFO - BEGIN (implicit)
+2026-01-27 15:52:14,084 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-27 15:52:14,084 - INFO - [raw sql] ()
+2026-01-27 15:52:14,090 - INFO - PRAGMA main.table_info("query_log")
+2026-01-27 15:52:14,091 - INFO - [raw sql] ()
+2026-01-27 15:52:14,092 - INFO - PRAGMA main.table_info("request_log")
+2026-01-27 15:52:14,092 - INFO - [raw sql] ()
+2026-01-27 15:52:14,094 - INFO - COMMIT
+2026-01-27 15:52:14,095 - INFO - Application startup complete.
+2026-01-27 15:52:19,945 - INFO - 1 change detected
+2026-01-27 15:52:19,945 - WARNING - WatchFiles detected changes in 'api\routes\file_upload.py'. Reloading...
+2026-01-27 15:52:20,011 - INFO - Shutting down
+2026-01-27 15:52:20,127 - INFO - Waiting for application shutdown.
+2026-01-27 15:52:20,128 - INFO - Application shutdown complete.
+2026-01-27 15:52:20,133 - INFO - Finished server process [352]
+2026-01-27 15:52:20,663 - INFO - 1 change detected
+2026-01-27 15:52:21,379 - INFO - 5 changes detected
+2026-01-27 15:52:21,651 - INFO - Started server process [25236]
+2026-01-27 15:52:21,651 - INFO - Waiting for application startup.
+2026-01-27 15:52:21,660 - INFO - BEGIN (implicit)
+2026-01-27 15:52:21,660 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-27 15:52:21,661 - INFO - [raw sql] ()
+2026-01-27 15:52:21,662 - INFO - PRAGMA main.table_info("query_log")
+2026-01-27 15:52:21,663 - INFO - [raw sql] ()
+2026-01-27 15:52:21,664 - INFO - PRAGMA main.table_info("request_log")
+2026-01-27 15:52:21,664 - INFO - [raw sql] ()
+2026-01-27 15:52:21,666 - INFO - COMMIT
+2026-01-27 15:52:21,667 - INFO - Application startup complete.
+2026-01-27 15:52:28,562 - INFO - 1 change detected
+2026-01-27 15:52:28,562 - WARNING - WatchFiles detected changes in 'api\routes\file_upload.py'. Reloading...
+2026-01-27 15:52:28,598 - INFO - Shutting down
+2026-01-27 15:52:28,708 - INFO - Waiting for application shutdown.
+2026-01-27 15:52:28,741 - INFO - Application shutdown complete.
+2026-01-27 15:52:28,769 - INFO - Finished server process [25236]
+2026-01-27 15:52:29,301 - INFO - 1 change detected
+2026-01-27 15:52:29,763 - INFO - 1 change detected
+2026-01-27 15:52:29,763 - WARNING - WatchFiles detected changes in 'api\routes\file_upload.py'. Reloading...
+2026-01-27 15:52:30,290 - INFO - Started server process [25048]
+2026-01-27 15:52:30,290 - INFO - Waiting for application startup.
+2026-01-27 15:52:30,297 - INFO - BEGIN (implicit)
+2026-01-27 15:52:30,297 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-27 15:52:30,300 - INFO - [raw sql] ()
+2026-01-27 15:52:30,303 - INFO - PRAGMA main.table_info("query_log")
+2026-01-27 15:52:30,304 - INFO - [raw sql] ()
+2026-01-27 15:52:30,305 - INFO - PRAGMA main.table_info("request_log")
+2026-01-27 15:52:30,307 - INFO - [raw sql] ()
+2026-01-27 15:52:30,310 - INFO - COMMIT
+2026-01-27 15:52:30,311 - INFO - Application startup complete.
+2026-01-27 15:52:30,337 - ERROR - Traceback (most recent call last):
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 701, in lifespan
+    await receive()
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\asyncio\queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+2026-01-27 15:56:53,877 - INFO - Will watch for changes in these directories: ['C:\\Users\\NEC\\Documents\\projects\\AnswerFlow\\backend']
+2026-01-27 15:56:53,879 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-01-27 15:56:53,880 - INFO - Started reloader process [9472] using WatchFiles
+2026-01-27 15:56:55,193 - INFO - Started server process [21364]
+2026-01-27 15:56:55,195 - INFO - Waiting for application startup.
+2026-01-27 15:56:55,198 - INFO - BEGIN (implicit)
+2026-01-27 15:56:55,199 - INFO - PRAGMA main.table_info("filenamestore")
+2026-01-27 15:56:55,199 - INFO - [raw sql] ()
+2026-01-27 15:56:55,201 - INFO - PRAGMA main.table_info("query_log")
+2026-01-27 15:56:55,201 - INFO - [raw sql] ()
+2026-01-27 15:56:55,203 - INFO - PRAGMA main.table_info("request_log")
+2026-01-27 15:56:55,203 - INFO - [raw sql] ()
+2026-01-27 15:56:55,204 - INFO - COMMIT
+2026-01-27 15:56:55,206 - INFO - Application startup complete.
+2026-01-27 15:56:58,877 - INFO - Request: GET /docs from 127.0.0.1
+2026-01-27 15:56:58,877 - INFO - Response: GET /docs returned 200 to 127.0.0.1
+2026-01-27 15:56:59,131 - INFO - Request: GET /openapi.json from 127.0.0.1
+2026-01-27 15:56:59,141 - INFO - Response: GET /openapi.json returned 200 to 127.0.0.1
+2026-01-27 15:57:10,738 - INFO - Request: POST /verify-access from 127.0.0.1
+2026-01-27 15:57:10,743 - INFO - Response: POST /verify-access returned 200 to 127.0.0.1
+2026-01-27 15:57:13,206 - INFO - Request: POST /verify-access from 127.0.0.1
+2026-01-27 15:57:13,207 - INFO - Response: POST /verify-access returned 200 to 127.0.0.1
+2026-01-27 15:57:25,831 - INFO - Request: POST /upload-file from 127.0.0.1
+2026-01-27 15:57:25,838 - INFO - BEGIN (implicit)
+2026-01-27 15:57:25,838 - INFO - INSERT INTO filenamestore (date, time, stored_file_name, original_file_name) VALUES (?, ?, ?, ?)
+2026-01-27 15:57:25,838 - INFO - [generated in 0.00042s] (datetime.date(2026, 1, 27), datetime.datetime(2026, 1, 27, 15, 57, 25, 838980), '8ba8e7e0-f60f-4b06-8ec1-d382284e3a5b.pdf', 'HOSTEL FEE.pdf')
+2026-01-27 15:57:25,838 - INFO - COMMIT
+2026-01-27 15:57:25,859 - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\sessions.py", line 85, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 191, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "C:\Users\NEC\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_utils.py", line 85, in collapse_excgroups
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\middleware\request_logging.py", line 15, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\.venv\Lib\site-packages\fastapi\routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NEC\Documents\projects\AnswerFlow\backend\api\routes\file_upload.py", line 74, in upload_file
+    await db.refresh()
+          ^^^^^^^^^^^^
+TypeError: AsyncSession.refresh() missing 1 required positional argument: 'instance'
+2026-01-27 15:57:26,038 - INFO - 4 changes detected
