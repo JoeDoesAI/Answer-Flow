@@ -11,7 +11,7 @@ load_dotenv()
 QDRANT_URL = os.getenv("QDRANT_URL")
 
 
-class VectorStore:
+class VectorDB:
     def __init__(
         self,
         qdrant_url: str = QDRANT_URL,
@@ -39,3 +39,17 @@ class VectorStore:
         await self.client.upsert(
             collection_name=self.collection_name, points=[point], wait=True
         )
+
+    async def search_vectors(self, vectors,limit:int=5):
+        search_result = await self.client.search(
+                collection_name = self.collection_name,
+                query_vector=vectors,
+                limit=limit,
+
+        )
+
+        payloads = [hit.payload for hit in search_result]
+
+        return {"results":payloads}
+
+

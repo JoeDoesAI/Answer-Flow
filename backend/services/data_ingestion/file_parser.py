@@ -2,37 +2,20 @@ import os
 from pathlib import Path
 from typing import List
 
+from sqlalchemy import select
+from db.sqlite.session import AsyncSession
 from docling.document_converter import DocumentConverter
 from models.sqlite.file_name_store import FileNameStore
 
 
-script_location = Path(__file__).parent.parent
 
 
-
-# This path will always resolve correctly to your uploads folder
-uploads_path = script_location /  "uploads"
-
-class DocumentParser:
-    def __init__(self,doc_converter = DocumentConverter(), directory_path:Path = Path(uploads_path)):
+class FileParser:
+    def __init__(self,doc_converter = DocumentConverter(), directory_path:Path = Path("uploads")):
         self.converter = doc_converter
         self.directory_path = directory_path
-        
 
-    async def read_files(self) -> List[dict]:
-        folder_paths = []
-        
-        for path in self.directory_path.iterdir():
-            await folder_paths.append(path)
-
-        return folder_paths
-    
-    
-    async def get_original_filename(self):
-        pass
-
-    
-    async def convert_docs(self) -> List[dict]:
+    async def run(self) -> List[dict]:
         """ Generate a list of dictionaries of each file
         
         dict - filename
@@ -44,21 +27,44 @@ class DocumentParser:
         
         result = []
 
-        for file_path in self.read_files():
-            result = self.converter.convert(file_path)
+        folder_paths = await self.read_files()
 
-            markdown_text = await result.document.export_to_markdown()
+        for file_path in folder_paths:
+            converter = self.converter.convert(file_path)
 
-            file = {
+            markdown_text = converter.document.export_to_markdown()
+
+            doc_data = {
                 "filename":file_path,
                 "file_content" : markdown_text,
                 "page_char_count":markdown_text.len(),
                 "token_count":len(markdown_text)/4
             }
 
-            result.append(file)
+            result.append(doc_data)
 
-        return result  
+        return result 
+        
+
+    async def read_files(self) -> List:
+        folder_paths = []
+
+        for path in self.directory_path.iterdir():
+            folder_paths.append(path)
+
+        return folder_paths
+    
+    
+    async def get_original_filename(self,db:AsyncSession,filename:str) -> str:
+        get_filename = await select(FileNameStore.original_file_name).where(FileNameStore.unique_file_name == filename)
+        result = await db.execute(get_filename)
+
+        original_name = result.scalar_one_or_none()
+
+        return original_name
+
+    
+    
     
 
 

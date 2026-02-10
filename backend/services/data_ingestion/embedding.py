@@ -1,8 +1,9 @@
+from typing import List
 from transformers import AutoTokenizer, AutoModel
 import torch
 
 
-class LateChunkEmbed:
+class EmbeddingService:
     def __init__(self, model_name: str = "sentence-transformers/all-mpnet-base-v2"):
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModel.from_pretrained(model_name)
@@ -35,7 +36,10 @@ class LateChunkEmbed:
             cursor = end + 1
         return chunks
 
-    def late_chunk(self, text):
+    def run(self, pages:List[dict]):
+        for page in pages:
+            text = page['file_content']
+
         token_embeddings, offsets = self.embed_text(text)
         chunks = self.split_sentences(text)
         chunk_embeddings = []

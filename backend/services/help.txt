@@ -17,12 +17,12 @@ store the text
 
 #The Q&A Request layer 
 question reformulation
-retrieval
+
 augmentation
 generation
 streaming
 
- Production Architecture
+Production Architecture
 Async Everything: Always use async def for your routes to handle multiple concurrent AI requests without blocking.
 Background Tasks: Use FastAPI BackgroundTasks for small post-response jobs like logging or updating analytics.
 Distributed Task Queues: For heavy workloads like re-indexing thousands of documents, use Celery with Redis to offload work from your main API server.
