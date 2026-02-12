@@ -5,15 +5,14 @@ from typing import List
 from pathlib import Path
 
 from datetime import datetime, date
-
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from fastapi import UploadFile,HTTPException
-
+from fastapi import UploadFile
 from models.sqlite.file_name_store import FileNameStore
 
 
-class SaveFile:
+from schemas.file import UploadResponse
+
+class FileUploader:
     """
     save file is a class that validates and saves file to the upload folder of my app
     input a list of file objects into the run method and 
@@ -32,24 +31,19 @@ class SaveFile:
         output - none
     """
 
-    def __init__(self, max_files: int=10,
+    def __init__(self, db:AsyncSession,
                        max_size:int = 20 * 1024 * 1024,
                        allowed_extensions:List = [".pdf",".txt",".json"],
                        upload_path:Path = Path("uploads")
                        ):
-        
+        self.db = db
         self.max_size = max_size
-        self.max_files = max_files
         self.allowed_extensions = allowed_extensions
         self.upload_path = upload_path
 
 
-    async def run(self, files: List[UploadFile],db:AsyncSession) -> List[dict]:
-        if len(files) > self.max_files:
-            return HTTPException (status_code=400,
-                detail="Too many files. Maximum 10 files allowed.")
-        
-        upload_state:List[dict] = []
+    async def run(self, files: List[UploadFile]) -> UploadResponse:
+        upload_state:List = []
 
         for file in files:
             validate_file = await self.validate_file(file)
@@ -61,9 +55,9 @@ class SaveFile:
 
             if not validate_file["valid"]:
                 upload_state.append({
-                    "filename": file.filename,
+                    "filename": filename,
                     "success": False,
-                    "errors": validate_file["errors"]
+                    "errors": validate_file["error"]
                 })
                 
                 continue
@@ -83,33 +77,27 @@ class SaveFile:
             
 
 
-            await self.save_file_name(db,filename,unique_filename)
+            await self.save_file_name(filename,unique_filename)
 
-            upload_state.append({"filename":file.filename,
+            upload_state.append({"filename":filename,
                                 "success":True,
                                 })
             
-        return upload_state
+        return UploadResponse(files_status = upload_state)
 
         
     async def validate_file(self, file:UploadFile) -> dict:
-        result = {"valid": True, "errors":[]}
 
         if not file.filename or not file.filename.strip():
-            result["valid"] = False
-            result["error"].append("no file selected")
-
-            return result
+            return {"valid": False, "error":"no file selected"}
+        
 
         #check file extension
         file_ext = Path(file.filename).suffix.lower()
 
         if file_ext not in self.allowed_extensions:
-            result["valid"] = False
-            result["error"].append(f"The file extension {file_ext} not allowed")
-
-            return result
-
+            return {"valid": False, "error": f"The file extension {file_ext} not allowed"}
+           
         #check file size
         content_size = await file.read()
         await file.seek(0)
@@ -117,14 +105,11 @@ class SaveFile:
         file_size = len(content_size)
 
         if file_size > self.max_size:
-            result["valid"] = False
-            result["error"].append(
-            f"File too large ({file_size:,} bytes). Maximum: {self.max_size:,} bytes"
-            )
-
-        return result
+            return {"valid": False, "error": "Maximum file size excceded"}
+        
+        return {"valid": True}
     
-    async def save_file_name(self,db:AsyncSession,filename:str, unique_filename:str):
+    async def save_file_name(self,filename:str, unique_filename:str):
         current_date = date.today()
         current_time = datetime.now()
 
@@ -133,33 +118,30 @@ class SaveFile:
                                 time=current_time,
                                 stored_file_name = unique_filename,
                                 original_file_name = filename)
-        db.add(new_file)
+        self.db.add(new_file)
 
-        await db.commit()
+        await self.db.commit()
         # await db.refresh()
 
 
     async def upload_file(self, file:UploadFile, file_path:Path) -> dict:
-        upload_state = {}
-
         try:
             file.file.seek(0)
 
 
             with open(file_path, "wb") as buffer:
                 shutil.copyfileobj(file.file, buffer)
-            
-            upload_state["uploaded"] = True
+
+            return{"uploaded": True}
 
         except Exception as e:
-            upload_state["uploaded"] = False
-            upload_state["error"] = f"File was not uploaded {e}"
+            return {"uploaded": False, "error": f"file was not uploaded due to {e}"}
 
         finally:
             file.file.close()
 
 
-        return upload_state
+        
 
 
         

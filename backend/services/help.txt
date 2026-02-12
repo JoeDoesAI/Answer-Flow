@@ -5,6 +5,7 @@
 upload document 
 store the document in the upload folder
 
+https://blog.sparrow.so/harnessing-fastapi-openai-full-stack-development/
 
 
 
@@ -48,3 +49,24 @@ project_root/
 ├── tests/                  # Unit and integration tests
 ├── .env                    # Secrets (don't commit to Git!)
 └── requirements.txt        # Dependencies
+
+
+# client = await get_qdrant_client()
+#     # Check and create collection if it doesn't exist
+#     if not await client.collection_exists(collection_name=COLLECTION_NAME):
+#         await client.create_collection(
+#             collection_name=COLLECTION_NAME,
+#             vectors_config=models.VectorParams(size=VECTOR_SIZE, distance=models.Distance.COSINE),
+#         )
+#     await client.close()
+
+# Define a dependency to get the Qdrant client
+# async def get_qdrant_client() -> AsyncQdrantClient:
+#     """Provides an asynchronous Qdrant client instance."""
+#     client = AsyncQdrantClient(url=QDRANT_URL)
+#     return client
+
+
+# COLLECTION_NAME = "my_collection"
+# # The size must match the output dimension of your embedding model
+# VECTOR_SIZE = 384 

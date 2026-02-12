@@ -1,27 +1,28 @@
 from typing import List
 
-from fastapi import APIRouter, Request, File, UploadFile, HTTPException, Depends
-from db.sqlite.session import AsyncSession
+from fastapi import APIRouter, Request, File, UploadFile, HTTPException, Depends 
 
-
-
-
-from api.deps import get_async_db_session,get_file_ingestion
-from services.data_ingestion.ochestrator import IngestionOchestrator
+from schemas.file import UploadResponse
+from api.deps.service_deps import get_uploader,get_ingestion
+from services.file_service.file_uploader import FileUploader
+from services.ingestion_service.ochestrator import IngestionOchestrator
 
 uploader_router = APIRouter()
 
 
-@uploader_router.post("/upload-docs",response_model=None)
+@uploader_router.post("/upload-docs", response_model=UploadResponse)
 async def upload_docs(
     request: Request,
-    db: AsyncSession = Depends(get_async_db_session),
     files: List[UploadFile] = File(...),
-    ingestion: IngestionOchestrator = Depends(get_file_ingestion)
+    upload:FileUploader = Depends(get_uploader),
+    ingestion:IngestionOchestrator = Depends(get_ingestion)
 ):
+
     if not request.session.get("authorized"):
         raise HTTPException(status_code=400, detail="No Access")
+    
+    uploader = await upload.run(files)
 
-    ingestor = await ingestion.run(files,db)
+    await ingestion.run()
 
-    return ingestor
+    return uploader

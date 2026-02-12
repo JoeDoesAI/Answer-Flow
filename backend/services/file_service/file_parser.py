@@ -37,7 +37,7 @@ class FileParser:
             doc_data = {
                 "filename":file_path,
                 "file_content" : markdown_text,
-                "page_char_count":markdown_text.len(),
+                "page_char_count": len(markdown_text),
                 "token_count":len(markdown_text)/4
             }
 

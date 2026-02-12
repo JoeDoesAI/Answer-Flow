@@ -8,7 +8,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from api.routes.auth import auth_router
 from api.routes.file_upload import uploader_router
-from api.routes.qa import retrieve_router
+# from api.routes.qa import retrieve_router
 
 from core.lifespan import lifespan
 from middleware.request_logging import LoggingMiddleware
@@ -23,7 +23,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 app.include_router(uploader_router)
 app.include_router(auth_router)
-app.include_router(retrieve_router)
+# app.include_router(retrieve_router)
 
 # app.add_middleware(LoggingMiddleware)
 

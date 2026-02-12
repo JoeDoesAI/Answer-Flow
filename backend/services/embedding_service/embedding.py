@@ -2,9 +2,12 @@ from typing import List
 from transformers import AutoTokenizer, AutoModel
 import torch
 
+from core.config import Settings
+
+
 
 class EmbeddingService:
-    def __init__(self, model_name: str = "sentence-transformers/all-mpnet-base-v2"):
+    def __init__(self, model_name: str = f"sentence-transformers/{Settings.EMBEDDING_MODEL}"):
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModel.from_pretrained(model_name)
 
@@ -41,6 +44,7 @@ class EmbeddingService:
             text = page['file_content']
 
         token_embeddings, offsets = self.embed_text(text)
+        
         chunks = self.split_sentences(text)
         chunk_embeddings = []
 
