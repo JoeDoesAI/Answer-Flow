@@ -1,19 +1,24 @@
+import io
 import os
 from pathlib import Path
 from typing import List
 
+from docling.datamodel.base_models import DocumentStream
 from sqlalchemy import select
 from db.sqlite.session import AsyncSession
 from docling.document_converter import DocumentConverter
 from models.sqlite.file_name_store import FileNameStore
+from core.config import Settings
+from supabase import AsyncClient
 
 
 
 
 class FileParser:
-    def __init__(self,doc_converter = DocumentConverter(), directory_path:Path = Path("uploads")):
+    def __init__(self,supabase_client:AsyncClient,doc_converter = DocumentConverter(),bucket_name=Settings.SUPABASE_BUCKET, directory_path:Path = Path("uploads")):
         self.converter = doc_converter
-        self.directory_path = directory_path
+        self.bucket = bucket_name
+        self.supabase = supabase_client
 
     async def run(self) -> List[dict]:
         """ Generate a list of dictionaries of each file
@@ -24,15 +29,35 @@ class FileParser:
                token_count
 
         """
+        files = self.supabase.storage.from_(self.bucket).list("uploads")
+
+        if not files:
+            return "No files in the supabase directory"
         
-        result = []
+        markdown_result = []
 
-        folder_paths = await self.read_files()
+        for file in files:
+            file_name = file["name"]
 
-        for file_path in folder_paths:
-            converter = self.converter.convert(file_path)
+            if file_name == ".emptyFolderPlaceholder":
+                continue
 
-            markdown_text = converter.document.export_to_markdown()
+            file_path = f"uploads/{file_name}"
+            file_bytes = self.supabase.from_(self.bucket).download(file_path)
+
+
+            buf = io.BytesIO(file_bytes)
+            source = DocumentStream(name=file_name, stream=buf)
+
+            result = self.converter.convert(source)
+            markdown_text = result.document.export_to_markdown()
+
+
+
+
+            # converter = self.converter.convert(file_path)
+            # markdown_text = converter.document.export_to_markdown()
+
 
             doc_data = {
                 "filename":file_path,
@@ -41,18 +66,18 @@ class FileParser:
                 "token_count":len(markdown_text)/4
             }
 
-            result.append(doc_data)
+            markdown_result.append(doc_data)
 
-        return result 
+        return markdown_result 
         
 
-    async def read_files(self) -> List:
-        folder_paths = []
+    # async def read_files(self) -> List:
+    #     folder_paths = []
 
-        for path in self.directory_path.iterdir():
-            folder_paths.append(path)
+    #     for path in self.directory_path.iterdir():
+    #         folder_paths.append(path)
 
-        return folder_paths
+    #     return folder_paths
     
     
     async def get_original_filename(self,db:AsyncSession,filename:str) -> str:
