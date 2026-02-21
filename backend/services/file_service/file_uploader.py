@@ -9,6 +9,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import UploadFile
 from models.sqlite.file_name_store import FileNameStore
 
+from supabase import AsyncClient
+
+from core.config import Settings
 
 from schemas.file import UploadResponse
 
@@ -32,14 +35,17 @@ class FileUploader:
     """
 
     def __init__(self, db:AsyncSession,
+                       supabase_client:AsyncClient,
                        max_size:int = 20 * 1024 * 1024,
                        allowed_extensions:List = [".pdf",".txt",".json"],
-                       upload_path:Path = Path("uploads")
+                       bucket:str = Settings.SUPABASE_BUCKET
+
                        ):
         self.db = db
+        self.supabase_client = supabase_client
         self.max_size = max_size
         self.allowed_extensions = allowed_extensions
-        self.upload_path = upload_path
+        self.supabase_bucket = bucket
 
 
     async def run(self, files: List[UploadFile]) -> UploadResponse:
@@ -50,7 +56,7 @@ class FileUploader:
 
             file_ext = Path(file.filename).suffix
             unique_filename = f"{uuid.uuid4()}{file_ext}"
-            file_path:Path = self.upload_path / unique_filename
+            file_path:str = f"uploads/{unique_filename}"
             filename:str = file.filename
 
             if not validate_file["valid"]:
@@ -124,14 +130,15 @@ class FileUploader:
         # await db.refresh()
 
 
-    async def upload_file(self, file:UploadFile, file_path:Path) -> dict:
+    async def upload_file(self, file:UploadFile, file_path:str) -> dict:
         try:
-            file.file.seek(0)
+            
+            # file.file.seek(0)
 
-
-            with open(file_path, "wb") as buffer:
-                shutil.copyfileobj(file.file, buffer)
-
+            content = await file.read()
+           
+            await self.supabase_client.storage.from_(self.supabase_bucket).upload(file_path, content)
+            
             return{"uploaded": True}
 
         except Exception as e:

@@ -23,6 +23,6 @@ async def upload_docs(
     
     uploader = await upload.run(files)
 
-    await ingestion.run()
+    # await ingestion.run()
 
     return uploader
