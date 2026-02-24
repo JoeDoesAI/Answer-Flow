@@ -5,6 +5,6 @@ from sqlalchemy.orm import declarative_base
 DATABASE_URL = Settings.DATABASE_URL
 
 # Create the asynchronous engine
-engine = create_async_engine(DATABASE_URL, echo=True, future=True)
+engine = create_async_engine(DATABASE_URL, echo=False, future=True)
 
 Base = declarative_base()

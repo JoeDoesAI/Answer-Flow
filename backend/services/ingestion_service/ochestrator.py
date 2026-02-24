@@ -14,16 +14,14 @@ class IngestionOchestrator:
         self.vector_store = vector_store
 
     async def run(self) -> List[dict]:
-        pass
-
-        # doc_text = await self.parse_file.run()
+        doc_text = await self.parse_file.run()
         
-        # embeddings = self.embedded_text.run(doc_text)
+        embeddings = self.embedded_text.run(doc_text)
 
-        # for doc in doc_text:
-        #     await self.vector_store.store_vectors(embeddings,doc)
+        for doc in doc_text:
+            await self.vector_store.store_vectors(embeddings,doc)
 
-        # return "Ingestion complete!"
+        return "Ingestion complete!"
 
 
 

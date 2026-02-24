@@ -1,6 +1,4 @@
 import io
-import os
-from pathlib import Path
 from typing import List
 
 from docling.datamodel.base_models import DocumentStream
@@ -15,7 +13,8 @@ from supabase import AsyncClient
 
 
 class FileParser:
-    def __init__(self,supabase_client:AsyncClient,doc_converter = DocumentConverter(),bucket_name=Settings.SUPABASE_BUCKET, directory_path:Path = Path("uploads")):
+    def __init__(self,supabase_client:AsyncClient,db:AsyncSession,doc_converter = DocumentConverter(),bucket_name=Settings.SUPABASE_BUCKET):
+        self.db = db
         self.converter = doc_converter
         self.bucket = bucket_name
         self.supabase = supabase_client
@@ -29,7 +28,7 @@ class FileParser:
                token_count
 
         """
-        files = self.supabase.storage.from_(self.bucket).list("uploads")
+        files = await self.supabase.storage.from_(self.bucket).list("uploads")
 
         if not files:
             return "No files in the supabase directory"
@@ -38,12 +37,13 @@ class FileParser:
 
         for file in files:
             file_name = file["name"]
+            original_file_name = self.get_original_filename(file_name)
 
             if file_name == ".emptyFolderPlaceholder":
                 continue
 
             file_path = f"uploads/{file_name}"
-            file_bytes = self.supabase.from_(self.bucket).download(file_path)
+            file_bytes = await self.supabase.storage.from_(self.bucket).download(file_path)
 
 
             buf = io.BytesIO(file_bytes)
@@ -60,7 +60,7 @@ class FileParser:
 
 
             doc_data = {
-                "filename":file_path,
+                "filename":original_file_name,
                 "file_content" : markdown_text,
                 "page_char_count": len(markdown_text),
                 "token_count":len(markdown_text)/4
@@ -80,9 +80,9 @@ class FileParser:
     #     return folder_paths
     
     
-    async def get_original_filename(self,db:AsyncSession,filename:str) -> str:
-        get_filename = await select(FileNameStore.original_file_name).where(FileNameStore.unique_file_name == filename)
-        result = await db.execute(get_filename)
+    async def get_original_filename(self,file_name:str) -> str:
+        get_filename = await select(FileNameStore.original_file_name).where(FileNameStore.unique_file_name == file_name)
+        result = await self.db.execute(get_filename)
 
         original_name = result.scalar_one_or_none()
 

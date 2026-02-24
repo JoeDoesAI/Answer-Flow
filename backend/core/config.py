@@ -11,17 +11,16 @@ class Settings:
     DATABASE_URL: str = os.getenv("DATABASE_URL")
 
     # Vector Store
-    VECTOR_DB_PATH: str = os.getenv("VECTOR_DB_PATH")
+    QDRANT_URL: str = os.getenv("QDRANT_URL")
+    QDRANT_API_KEY:str = os.getenv("QDRANT_API_KEY")
 
     # Model Settings
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL")
-
     LLM_API_KEY: str = os.getenv("LLM_API_KEY")
 
+    #file storage settings
     SUPABASE_URL:str = os.getenv("SUPABASE_URL")
-    
     SUPABASE_KEY:str = os.getenv("SUPABASE_KEY")
-
     SUPABASE_BUCKET:str = os.getenv("SUPABASE_BUCKET")
    
     

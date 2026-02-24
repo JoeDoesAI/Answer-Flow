@@ -29,7 +29,6 @@ async def lifespan(app: FastAPI):
     yield
     #shutdown
     
-    await app.state.supabase.aclose()
     await engine.dispose()
         
    

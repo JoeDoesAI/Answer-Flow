@@ -1,12 +1,13 @@
 from qdrant_client import AsyncQdrantClient
 from core.config import Settings
 
-QDRANT_URL = Settings.VECTOR_DB_PATH
+QDRANT_URL = Settings.QDRANT_URL
+QDRATN_API_KEY = Settings.QDRANT_API_KEY
 
 
 
 def init_qdrant():
-    return AsyncQdrantClient(url=QDRANT_URL)
+    return AsyncQdrantClient(url=QDRANT_URL,api_key=QDRATN_API_KEY)
 
 async def ensure_collection(qdrant:AsyncQdrantClient):
     if not qdrant.collection_exists("company_knowledge_base"):
@@ -17,4 +18,5 @@ async def ensure_collection(qdrant:AsyncQdrantClient):
                 "distance": "Cosine"
             }
         )
+
 
