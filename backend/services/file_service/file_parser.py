@@ -13,10 +13,10 @@ from supabase import AsyncClient
 
 
 class FileParser:
-    def __init__(self,supabase_client:AsyncClient,db:AsyncSession,doc_converter = DocumentConverter(),bucket_name=Settings.SUPABASE_BUCKET):
+    def __init__(self,supabase_client:AsyncClient,db:AsyncSession,doc_converter = DocumentConverter()):
         self.db = db
         self.converter = doc_converter
-        self.bucket = bucket_name
+        self.bucket = Settings.SUPABASE_BUCKET
         self.supabase = supabase_client
 
     async def run(self) -> List[dict]:
@@ -37,7 +37,7 @@ class FileParser:
 
         for file in files:
             file_name = file["name"]
-            original_file_name = self.get_original_filename(file_name)
+            original_file_name = await self.get_original_filename(file_name)
 
             if file_name == ".emptyFolderPlaceholder":
                 continue
@@ -50,10 +50,9 @@ class FileParser:
             source = DocumentStream(name=file_name, stream=buf)
 
             result = self.converter.convert(source)
-            markdown_text = result.document.export_to_markdown()
+            markdown_text = result.document.export_to_markdown(page_break_placeholder="new_page")
 
-
-
+            
 
             # converter = self.converter.convert(file_path)
             # markdown_text = converter.document.export_to_markdown()
@@ -79,17 +78,18 @@ class FileParser:
 
     #     return folder_paths
     
-    
+    # async def generate_page_chunks(self,page_cotent)-> List[str]:
+
+
+        
     async def get_original_filename(self,file_name:str) -> str:
-        get_filename = await select(FileNameStore.original_file_name).where(FileNameStore.unique_file_name == file_name)
+        get_filename = select(FileNameStore.original_file_name).where(FileNameStore.stored_file_name == file_name)
         result = await self.db.execute(get_filename)
 
         original_name = result.scalar_one_or_none()
 
         return original_name
 
-    
-    
     
 
 

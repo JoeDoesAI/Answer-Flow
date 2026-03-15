@@ -1,11 +1,18 @@
-# from fastapi import APIRouter
+from fastapi import APIRouter, Request,Depends
+from fastapi.responses import StreamingResponse
+from schemas.qa import QA_Response
+from services.qa.ochestrator import RetrivalOchestrator
 
-# from api.deps import get_answer
-# retrieve_router = APIRouter()
+from deps.qa_dep import get_query_ans
+qa_router = APIRouter()
 
-# @retrieve_router.post('/generate_answer')
-# async def generate_answer(prompt:str,
-#                           vector_db):
+@qa_router.post("/query",response_model=QA_Response)
+async def answer_prompt(request:Request,
+                        user_query: str,
+                        answer:RetrivalOchestrator = Depends(get_query_ans)):
+    
+    generator = answer.run(user_query)
+
+    return StreamingResponse(generator, media_type="text/plain")
 
 
-#     pass

@@ -10,6 +10,7 @@ class Settings:
     SECRET_KEY: str = os.getenv("SECRET_KEY")
     DATABASE_URL: str = os.getenv("DATABASE_URL")
 
+
     # Vector Store
     QDRANT_URL: str = os.getenv("QDRANT_URL")
     QDRANT_API_KEY:str = os.getenv("QDRANT_API_KEY")

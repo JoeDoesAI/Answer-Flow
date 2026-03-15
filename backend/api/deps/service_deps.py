@@ -11,6 +11,9 @@ from services.embedding_service.embedding import EmbeddingService
 from services.ingestion_service.store_vectors import VectorDB
 from services.ingestion_service.ochestrator import IngestionOchestrator
 
+
+from services.qa.ochestrator import RetrivalOchestrator
+
 # SupabaseDep = Annotated[AsyncClient, Depends(get_supabase)]
 
 async def get_uploader(db = Depends(get_db),supabase=Depends(get_supabase)) -> FileUploader:
@@ -30,8 +33,6 @@ async def get_ingestion(
     
     return IngestionOchestrator(parser, embedder, vector_store)
 
-async def get_retrival():
-    pass
 
-async def ai_service():
-    pass
+async def get_query_ans() -> RetrievalOrchestrator:
+    return RetrivalOchestrator()
