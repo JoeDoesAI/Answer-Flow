@@ -3,9 +3,9 @@ from typing import List
 
 from docling.datamodel.base_models import DocumentStream
 from sqlalchemy import select
-from db.sqlite.session import AsyncSession
+from db.postgre.session import AsyncSession
 from docling.document_converter import DocumentConverter
-from models.sqlite.file_name_store import FileNameStore
+from models.postgre.file_name_store import UserFiles
 from core.config import Settings
 from supabase import AsyncClient
 
@@ -83,7 +83,7 @@ class FileParser:
 
         
     async def get_original_filename(self,file_name:str) -> str:
-        get_filename = select(FileNameStore.original_file_name).where(FileNameStore.stored_file_name == file_name)
+        get_filename = select(UserFiles.original_file_name).where(UserFiles.stored_file_name == file_name)
         result = await self.db.execute(get_filename)
 
         original_name = result.scalar_one_or_none()

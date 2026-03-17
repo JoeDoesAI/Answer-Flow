@@ -7,6 +7,7 @@ store the document in the upload folder
 
 https://blog.sparrow.so/harnessing-fastapi-openai-full-stack-development/
 
+https://share.google/aimode/RGgicKkghSLwcoD8V
 
 
 #Inngestion layer - Data Ingestion = file upload route

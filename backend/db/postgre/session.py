@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
-from db.sqlite.engine import engine
+from db.postgre.engine import engine
 
 
 # Create a session maker for AsyncSession objects

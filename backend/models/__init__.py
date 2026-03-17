@@ -1,6 +1,6 @@
-from db.sqlite.engine import Base
+from db.postgre.engine import Base
 
-from models.sqlite.file_name_store import FileNameStore
-from models.sqlite.query_log import QueryLog
-from models.sqlite.request_log import RequestLog
+from models.postgre.file_name_store import UserFiles
+from models.postgre.query_log import QueryLog
+from models.postgre.request_log import RequestLog
 

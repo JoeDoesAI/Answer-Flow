@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from db.sqlite.engine import Base
+from db.postgre.engine import Base
 
 
 class RequestLog(Base):

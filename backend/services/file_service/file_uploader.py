@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime, date
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import UploadFile
-from models.sqlite.file_name_store import FileNameStore
+from models.postgre.file_name_store import UserFiles
 
 from supabase import AsyncClient
 
@@ -120,7 +120,7 @@ class FileUploader:
         current_time = datetime.now()
 
 
-        new_file = FileNameStore(date=current_date,
+        new_file = UserFiles(date=current_date,
                                 time=current_time,
                                 stored_file_name = unique_filename,
                                 original_file_name = filename)

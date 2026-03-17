@@ -1,8 +1,8 @@
 from sqlalchemy import Column, String, Integer,Date,DateTime
-from db.sqlite.engine import Base
+from db.postgre.engine import Base
 
 
-class FileNameStore(Base):
+class UserFiles(Base):
     __tablename__ = "filenamestore"
     
     id = Column(Integer, primary_key=True, index=True)
@@ -10,4 +10,6 @@ class FileNameStore(Base):
     time = Column(DateTime, index=True)
     stored_file_name = Column(String, index=True, unique=True)
     original_file_name = Column(String, index=True)
+
+    
     

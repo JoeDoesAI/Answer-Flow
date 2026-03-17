@@ -1,6 +1,6 @@
-from ingestion_service.store_vectors import VectorDB
-from embedding_service.generate_embedding import GenerateEmbeddings
-from qa.llm_generation import LLMService
+from services.ingestion_service.store_vectors import VectorDB
+from services.embedding_service.generate_embedding import GenerateEmbeddings
+from services.qa.llm_generation import LLMService
 
 
 from typing import AsyncGenerator

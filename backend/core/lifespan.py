@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from db.sqlite.engine import engine, Base
+from db.postgre.engine import engine, Base
 from db.qdrant.config import init_qdrant,ensure_collection
 from supabase import create_async_client
 

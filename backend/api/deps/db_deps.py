@@ -1,5 +1,5 @@
 from typing import AsyncGenerator
-from db.sqlite.session import AsyncSession, AsyncSessionLocal
+from db.postgre.session import AsyncSession, AsyncSessionLocal
 from qdrant_client import AsyncQdrantClient
 from fastapi import Request
 
