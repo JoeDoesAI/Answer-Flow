@@ -3,7 +3,7 @@ from fastapi.responses import StreamingResponse
 from schemas.qa import QA_Response
 from services.qa.ochestrator import RetrivalOchestrator
 
-from deps.qa_dep import get_query_ans
+from api.deps.service_deps import get_query_ans
 qa_router = APIRouter()
 
 @qa_router.post("/query",response_model=QA_Response)

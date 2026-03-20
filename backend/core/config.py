@@ -9,7 +9,7 @@ class Settings:
     """Application settings loaded from environment variables."""
     SECRET_KEY: str = os.getenv("SECRET_KEY")
     DATABASE_URL: str = os.getenv("DATABASE_URL")
-
+    HASHING_ALGORITHM: str = os.getenv("HASHING_ALGORITHM")
 
     # Vector Store
     QDRANT_URL: str = os.getenv("QDRANT_URL")
