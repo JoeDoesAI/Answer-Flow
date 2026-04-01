@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 import jwt
 from pwdlib import PasswordHash
-from config import Settings
+from core.config import Settings
 
 
 SECRET_KEY = Settings.SECRET_KEY
