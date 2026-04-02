@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI,Request
 from fastapi.responses import RedirectResponse
 from starlette.middleware.sessions import SessionMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 
 from api.routes.auth import auth_router
 from api.routes.file_upload import uploader_router
@@ -36,8 +37,20 @@ app.add_middleware(
 )
 
 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",  # your React app
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 @app.get("/")
 async def main(request:Request):
-    return RedirectResponse("/verify-access")
+    return RedirectResponse("/login")
     # return HTTPException(status_code=400, detail="Wrong Access Code")
 

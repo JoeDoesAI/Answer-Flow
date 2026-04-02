@@ -5,7 +5,7 @@ from docling.datamodel.base_models import DocumentStream
 from sqlalchemy import select
 from db.postgre.session import AsyncSession
 from docling.document_converter import DocumentConverter
-from models.postgre.file_name_store import UserFiles
+from models.postgre.file import UserFiles
 from core.config import Settings
 from supabase import AsyncClient
 

@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime, date
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import UploadFile
-from models.postgre.file_name_store import UserFiles
+from models.postgre.file import UserFiles
 
 from supabase import AsyncClient
 
