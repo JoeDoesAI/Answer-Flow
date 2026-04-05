@@ -12,6 +12,6 @@ class User(Base):
     email = Column(String, index=True, unique=True)
     hashed_password = Column(String(255), index=True)
 
-    chats = relationship("Chat", back_populates="chats")
-    files = relationship("File", back_populates="files")
+    chats = relationship("Chat", back_populates="user")
+    files = relationship("File", back_populates="user")
 

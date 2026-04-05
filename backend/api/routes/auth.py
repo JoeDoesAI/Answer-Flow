@@ -25,15 +25,15 @@ ACCESS_CODE = os.getenv("ACCESS_CODE")
     
 @auth_router.post("/register")
 async def register(user:UserCreate,db:AsyncSession = Depends(get_db)):
-    user = authenticate_user(db, user.email, user.password)
-    await user
+    old_user = await authenticate_user(db, user.email, user.password)
+    
 
-    if user:
+    if old_user:
         raise HTTPException(400, "User already exists")
     
     hashed_password = hash_password(user.password)
 
-    new_user = create_user(user.username,user.email, hashed_password)
+    new_user = await create_user(db, user.firstname, user.lastname, user.email, hashed_password)
     
     return new_user
 
@@ -47,17 +47,18 @@ async def login(
             )-> Token:
    
     
-    user = authenticate_user(db, user.email, user.password)
-    if not user:
+    authenticated = await authenticate_user(db, user.email, user.password)
+
+    if authenticated is None:
         raise HTTPException(
             status_code=401,
-            detail="Incorrect username or password",
+            detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    
+   
     token = create_access_token(
-        {"sub": user.username},
-        timedelta(minutes=Settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+        {"sub": user.email},
+        timedelta(minutes=int(Settings.ACCESS_TOKEN_EXPIRE_MINUTES))
     )
 
     return Token(access_token=token,token_type="bearer")

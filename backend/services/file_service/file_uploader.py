@@ -1,13 +1,11 @@
 import uuid
-import shutil
-import asyncio
 from typing import List
 from pathlib import Path
 
 from datetime import datetime, date
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import UploadFile
-from models.postgre.file import UserFiles
+from models.postgre.file import File
 
 from supabase import AsyncClient
 
@@ -120,7 +118,7 @@ class FileUploader:
         current_time = datetime.now()
 
 
-        new_file = UserFiles(date=current_date,
+        new_file = File(date=current_date,
                                 time=current_time,
                                 stored_file_name = unique_filename,
                                 original_file_name = filename)

@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from db.postgre.engine import Base
 
 
-class Files(Base):
+class File(Base):
     __tablename__ = "file"
     
     id = Column(Integer, primary_key=True, index=True)
@@ -13,6 +13,6 @@ class Files(Base):
     original_name = Column(String, index=True)
     stored_name = Column(String, index=True, unique=True)
 
-    user = relationship("User", back_populates="user")
+    user = relationship("User", back_populates="files")
     
     

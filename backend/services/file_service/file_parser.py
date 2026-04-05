@@ -5,7 +5,7 @@ from docling.datamodel.base_models import DocumentStream
 from sqlalchemy import select
 from db.postgre.session import AsyncSession
 from docling.document_converter import DocumentConverter
-from models.postgre.file import UserFiles
+from models.postgre.file import File
 from core.config import Settings
 from supabase import AsyncClient
 
@@ -83,7 +83,7 @@ class FileParser:
 
         
     async def get_original_filename(self,file_name:str) -> str:
-        get_filename = select(UserFiles.original_file_name).where(UserFiles.stored_file_name == file_name)
+        get_filename = select(File.original_name).where(File.stored_name == file_name)
         result = await self.db.execute(get_filename)
 
         original_name = result.scalar_one_or_none()

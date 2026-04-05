@@ -3,10 +3,6 @@ from sqlalchemy import select
 from core.security import verify_password
 from models.postgre.user import User
 
-from passlib.context import CryptContext
-from core.config import Settings
-
-
 ACCESS_TOKEN_EXPIRE_MINUTES = 3600
 
 
@@ -26,8 +22,8 @@ async def authenticate_user(db: AsyncSession, email: str, password: str):
 
     return user
 
-async def create_user(db, username:str, email:str, hashed_password:str):
-    new_user = User(username=username, email=email, hashed_password=hashed_password)
+async def create_user(db, firstname:str, lastname:str, email:str, hashed_password:str):
+    new_user = User(first_name=firstname, last_name= lastname, email=email, hashed_password=hashed_password)
     
     db.add(new_user)
     await db.commit()
