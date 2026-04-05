@@ -5,6 +5,8 @@ const API = "http://localhost:8000";
 export default function Register({ onAuth, onGoLogin }) {
   const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
   const [error, setError]       = useState("");
   const [loading, setLoading]   = useState(false);
 
@@ -16,7 +18,7 @@ export default function Register({ onAuth, onGoLogin }) {
       const res = await fetch(`${API}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ firstname,lastname, email, password }),
       });
 
       const data = await res.json();
@@ -28,7 +30,7 @@ export default function Register({ onAuth, onGoLogin }) {
 
       // After registering, log them in automatically
       const formData = new URLSearchParams();
-      formData.append("username", email);
+      formData.append("email", email);
       formData.append("password", password);
 
       const loginRes = await fetch(`${API}/login`, {
@@ -57,6 +59,26 @@ export default function Register({ onAuth, onGoLogin }) {
       <p className="subtitle">Start chatting with your documents</p>
 
       {error && <div className="msg error">{error}</div>}
+
+      <div className="field">
+        <label>First Name</label>
+        <input
+          type="text"
+          placeholder="Enter your first name"
+          value={firstname}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+      </div>
+
+       <div className="field">
+        <label>Last Name</label>
+        <input
+          type="text"
+          placeholder="Enter your last name"
+          value={lastname}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+      </div>
 
       <div className="field">
         <label>Email</label>

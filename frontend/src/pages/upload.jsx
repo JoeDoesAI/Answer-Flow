@@ -32,7 +32,7 @@ export default function Upload({ token, onUpload }) {
       const formData = new FormData();
       formData.append("file", file);  // key name must match your FastAPI param
 
-      const res = await fetch(`${API}/upload`, {
+      const res = await fetch(`${API}/upload-docs`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,  // JWT auth

@@ -16,13 +16,13 @@ export default function Login({ onAuth, onGoRegister }) {
     try {
       // FastAPI's OAuth2 login expects form data, not JSON
       const formData = new URLSearchParams();
-      formData.append("username", email);  // FastAPI uses "username" by default
+      formData.append("email", email);  // FastAPI uses "username" by default
       formData.append("password", password);
 
       const res = await fetch(`${API}/login`, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
@@ -34,6 +34,7 @@ export default function Login({ onAuth, onGoRegister }) {
 
       // data.access_token is the JWT from FastAPI
       onAuth(data.access_token);
+      
     } catch (err) {
       setError("Could not reach server. Is FastAPI running?");
     } finally {
