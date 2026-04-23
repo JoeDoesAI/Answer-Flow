@@ -5,7 +5,7 @@ from core.config import Settings
 API_KEY = Settings.LLM_API_KEY
 
 class LLMService():
-    def __init__(self, client):
+    def __init__(self):
         self.client = AsyncGroq(api_key=API_KEY)
 
     async def groq_stream_generator(self,user_query):

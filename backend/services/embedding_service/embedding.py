@@ -4,12 +4,43 @@ from typing import List
 from google import genai
 from core.config import Settings
 
-
+API_KEY = Settings.EMBEDDING_API_KEY
 
 class EmbeddingService:
     def __init__(self, model_name: str = Settings.EMBEDDING_MODEL):
-        self.client = genai.Client()
+        self.client = genai.Client(api_key=API_KEY)
         self.model = model_name
+
+
+
+    def run(self, pages:List[dict]) -> List:
+
+        tokens = self.client.models.embed_content(
+            model= self.model,
+            contents = pages
+        )
+
+        return tokens 
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         # self.model.eval()
 
@@ -39,15 +70,10 @@ class EmbeddingService:
     #         cursor = end + 1
     #     return chunks
 
-    def run(self, pages:List[dict]) -> List:
 
-        tokens = self.client.models.embed_content(
-            model= self.model,
-            contents = pages
-        )
 
-        return tokens 
-            
+
+
 
         # for page in pages:
         #     text = page['file_content']
@@ -74,3 +100,23 @@ class EmbeddingService:
         # vectors = [t.detach().cpu().tolist() for t in chunk_embeddings]
 
         # return vectors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

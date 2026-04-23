@@ -2,7 +2,7 @@ import uuid
 from typing import List
 from pathlib import Path
 
-from datetime import datetime, date
+# from datetime import datetime, date
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import UploadFile
 from models.postgre.file import File
@@ -114,14 +114,10 @@ class FileUploader:
         return {"valid": True}
     
     async def save_file_name(self,filename:str, unique_filename:str):
-        current_date = date.today()
-        current_time = datetime.now()
-
-
-        new_file = File(date=current_date,
-                                time=current_time,
-                                stored_file_name = unique_filename,
-                                original_file_name = filename)
+        new_file = File(
+                        stored_name = unique_filename,
+                        original_name = filename)
+        
         self.db.add(new_file)
 
         await self.db.commit()
@@ -135,12 +131,18 @@ class FileUploader:
 
             content = await file.read()
            
-            await self.supabase_client.storage.from_(self.supabase_bucket).upload(file_path, content)
+            await self.supabase_client.storage.from_(self.supabase_bucket).upload(
+                        path=file_path, 
+                        file=content,
+                        file_options={ "content-type": file.content_type, # Keeps it as PDF/Image/etc.
+                                        "upsert": "true"                  # Overwrites if file exists
+                                    }
+                        )
             
             return{"uploaded": True}
 
         except Exception as e:
-            return {"uploaded": False, "error": f"file was not uploaded due to {e}"}
+            return {"uploaded": False, "error": f"file was not uploaded due to {repr(e)}"}
 
         finally:
             file.file.close()

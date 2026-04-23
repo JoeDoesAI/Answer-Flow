@@ -17,7 +17,9 @@ class Settings:
 
     # Model Settings
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL")
+    EMBEDDING_API_KEY: str = os.getenv("EMBEDDING_API_KEY")
     LLM_API_KEY: str = os.getenv("LLM_API_KEY")
+
 
     #file storage settings
     SUPABASE_URL:str = os.getenv("SUPABASE_URL")

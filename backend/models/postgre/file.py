@@ -8,7 +8,6 @@ class File(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("user.id"))
-    date = Column(Date, index=True)
     timestamp = Column(DateTime, index=True)
     original_name = Column(String, index=True)
     stored_name = Column(String, index=True, unique=True)

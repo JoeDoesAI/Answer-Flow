@@ -1,6 +1,4 @@
 import os
-
-
 from dotenv import load_dotenv
 from fastapi import FastAPI,Request
 from fastapi.responses import RedirectResponse
@@ -41,6 +39,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -51,5 +50,5 @@ app.add_middleware(
 @app.get("/")
 async def main(request:Request):
     return RedirectResponse("/login")
-    # return HTTPException(status_code=400, detail="Wrong Access Code")
+
 
