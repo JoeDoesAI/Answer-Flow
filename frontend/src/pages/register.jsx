@@ -1,6 +1,6 @@
 import { useState } from "react";
+const apiUrl = process.env.API_URL;
 
-const API = "http://localhost:8000";
 
 export default function Register({ onAuth, onGoLogin }) {
   const [email, setEmail]       = useState("");
@@ -15,7 +15,7 @@ export default function Register({ onAuth, onGoLogin }) {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API}/register`, {
+      const res = await fetch(`${apiUrl}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firstname,lastname, email, password }),

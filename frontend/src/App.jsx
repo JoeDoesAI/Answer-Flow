@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Upload from "./pages/Upload";
-import Chat from "./pages/Chat";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import Upload from "./pages/upload";
 import "./index.css";
 
 export default function App() {

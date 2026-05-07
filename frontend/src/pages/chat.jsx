@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const API = "http://localhost:8000";
+const apiUrl = process.env.API_URL;
 
 export default function Chat({ token, filename, onNewUpload }) {
   const [messages, setMessages] = useState([
@@ -9,6 +9,7 @@ export default function Chat({ token, filename, onNewUpload }) {
       content: `Document loaded: "${filename}". Ask me anything about it.`,
     },
   ]);
+
   const [input, setInput]     = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef             = useRef();
@@ -29,7 +30,7 @@ export default function Chat({ token, filename, onNewUpload }) {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API}/query`, {
+      const res = await fetch(`${apiUrl}/query`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

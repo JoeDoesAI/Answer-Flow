@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-// 🔌 CONNECT TO YOUR FASTAPI BACKEND
-const API = "http://localhost:8000";
+const apiUrl = process.env.API_URL;
 
 export default function Login({ onAuth, onGoRegister }) {
   const [email, setEmail]       = useState("");
@@ -19,7 +18,7 @@ export default function Login({ onAuth, onGoRegister }) {
       formData.append("email", email);  // FastAPI uses "username" by default
       formData.append("password", password);
 
-      const res = await fetch(`${API}/login`, {
+      const res = await fetch(`${apiUrl}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
