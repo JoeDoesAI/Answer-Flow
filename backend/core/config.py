@@ -11,6 +11,10 @@ class Settings:
     DATABASE_URL: str = os.getenv("DATABASE_URL")
     HASHING_ALGORITHM: str = os.getenv("HASHING_ALGORITHM")
     ACCESS_TOKEN_EXPIRE_MINUTES:str = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
+
+    #LLM API KEY
+    GROQ_API_KEY:str = os.getenv("GROQ_API_KEY")
+
     # Vector Store
     QDRANT_URL: str = os.getenv("QDRANT_URL")
     QDRANT_API_KEY:str = os.getenv("QDRANT_API_KEY")
@@ -25,6 +29,8 @@ class Settings:
     SUPABASE_URL:str = os.getenv("SUPABASE_URL")
     SUPABASE_KEY:str = os.getenv("SUPABASE_KEY")
     SUPABASE_BUCKET:str = os.getenv("SUPABASE_BUCKET")
-   
-    
+
+    SLACK_BOT_TOKEN:str = os.getenv("SLACK_BOT_TOKEN")
+    SLACK_SIGNING_SECRET:str = os.getenv("SLACK_SIGNING_SECRET")
+    SLACK_APP_TOKEN:str = os.getenv("SLACK_APP_TOKEN")
   

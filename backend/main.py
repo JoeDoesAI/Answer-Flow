@@ -9,6 +9,7 @@ from api.routes.auth import auth_router
 from api.routes.file_upload import uploader_router
 from api.routes.qa import qa_router
 
+
 from core.lifespan import lifespan
 from middleware.request_logging import LoggingMiddleware
 
@@ -25,7 +26,8 @@ app.include_router(auth_router)
 app.include_router(qa_router)
 
 
-# app.add_middleware(LoggingMiddleware)
+
+app.add_middleware(LoggingMiddleware)
 
 app.add_middleware(
     SessionMiddleware, 
